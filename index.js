@@ -9,6 +9,9 @@ app.use(cors())
 
 let errorHandler=function(error){console.log(error)}
 
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'));
+});
 
 app.post('/washProcess/:orderID/:totalItems', function(req,res){
   updateFun.washingFun(req.params.orderID,req.params.totalItems,res);
@@ -23,9 +26,7 @@ const job = nodeCron.schedule("0 0 0 * * *", function jobYouNeedToExecute() {
   updateFun.resetFun();
 });
 
-app.get('/',function(req,res){
-  res.sendFile(__dirname+'/public/index.html')
-})
+
 
 app.listen(process.env.PORT || 5000,function(error){
   if(error){
