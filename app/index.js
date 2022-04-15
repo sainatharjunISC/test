@@ -2,15 +2,15 @@ const express = require('express')
 const app = express()
 const cors=require('cors')
 const nodeCron = require("node-cron");
-let updateFun=require('../modeler/functions')
+let updateFun=require('./modeler/functions')
 
-app.use(express.static(__dirname+"../public"));
+app.use(express.static(__dirname+"/public"));
 app.use(cors())
 
 let errorHandler=function(error){console.log(error)}
 
 app.get('/',(req,res)=>{
-  res.sendFile(path.join(__dirname,'../public/index.html'));
+  res.sendFile(path.join(__dirname,'/public/index.html'));
 });
 
 app.post('/washProcess/:orderID/:totalItems', function(req,res){
