@@ -23,6 +23,9 @@ const job = nodeCron.schedule("0 0 0 * * *", function jobYouNeedToExecute() {
   updateFun.resetFun();
 });
 
+app.get('/',function(req,res){
+  res.sendFile(__dirname+'/public/index.html')
+})
 
 app.listen(process.env.PORT || 5000,function(error){
   if(error){
