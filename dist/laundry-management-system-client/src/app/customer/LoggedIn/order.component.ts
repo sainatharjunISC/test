@@ -80,11 +80,14 @@ export class OrderComponent {
   }]
   service:any="";
   
-  constructor(private afs:AngularFirestore,private router: Router){}
-  ngOnInit(){
+  constructor(private afs:AngularFirestore,private router: Router){
+    // console.log(sessionStorage['customerID'])
     if(!sessionStorage['customerID']){
       this.router.navigateByUrl('login');
     }
+  }
+  ngOnInit(){
+    
   }
 
   ordersCollection!: AngularFirestoreCollection<data>;

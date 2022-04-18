@@ -9,7 +9,7 @@ import { AuthService } from '../customer/services/auth.service';
     <div>
       <h3 class="float-md-start mb-0">Noble Laundry</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link" [class.active]="view=='home'"  [routerLink]="['../../admin']" >Home</a>
+        <a class="nav-link" [class.active]="view=='home'"  [routerLink]="['../']" >Home</a>
         <a class="nav-link" [class.active]="view=='dashboard'" [routerLink]="['../admin/dashboard']" >Dashboard</a>
         <a class="nav-link" (click)="logout()" *ngIf="user">Log out</a>
 

@@ -38,8 +38,9 @@ export class AuthService {
         sessionStorage['customerID']=user[0].customerID;
         sessionStorage['username']=user[0].fullName;
         sessionStorage['userObj']=JSON.stringify(user[0])
+        this.router.navigateByUrl('admin/dashboard');
       })
-      this.router.navigateByUrl('admin/dashboard');
+     
       }
       else{
       this.usersCollection=this.afs.collection('Customers',ref=>ref.where('email','==',email))
@@ -48,8 +49,9 @@ export class AuthService {
       sessionStorage['customerID']=user[0].customerID;
       sessionStorage['username']=user[0].fullName;
       sessionStorage['userObj']=JSON.stringify(user[0])
+      this.router.navigateByUrl('order');
     })
-    this.router.navigateByUrl('order');
+    
       }
 
 
@@ -96,7 +98,10 @@ export class AuthService {
     this.afAuth.auth.signOut().then(() => {
       sessionStorage.clear()
       this.router.navigateByUrl('');
-      location.reload()
+      if(this.router.url=='/'){
+        location.reload()
+      }
+     
     });
   }
 
