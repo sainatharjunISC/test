@@ -116,12 +116,16 @@ export class OrderComponent {
       alert('Please select the required service');
       return;
     }
+    let temp:any=true;
     this.clothList.forEach((cloth:any) => {
       if(cloth.clothType==""||cloth.clothColor==""){
-        alert('Please select both cloth type and color')
-        return;
+        temp=false;
       }
     });
+    if(temp==false){
+      alert('Please select both cloth type and color')
+      return
+    }
    let timeStamp = Date.now();
    const order:any={
      clothes:this.clothList,
