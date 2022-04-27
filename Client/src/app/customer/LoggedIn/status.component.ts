@@ -22,9 +22,9 @@ interface data{
       <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
       <span class="fs-5 fw-semibold">Orders</span>
     </a>
-    <div class="list-group list-group-flush border-bottom scrollarea">
+    <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let order of orders | async">
       
-      <a #orderLink (click)="setOrder(order)" *ngFor="let order of orders | async" class="list-group-item list-group-item-action py-3 lh-tight">
+      <a #orderLink (click)="setOrder(order)"  class="list-group-item list-group-item-action py-3 lh-tight">
         <div class="d-flex w-100 align-items-center justify-content-between">
           <strong class="mb-1" [innerHtml]="order.status | status | safeHtml"></strong>
           <small class="text-muted">{{ order.timeStamp | date:'dd/MM/yyyy' }}</small>
