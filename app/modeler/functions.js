@@ -61,7 +61,7 @@ const updateToWashing = (orderID) => {
             status = 'Washing';
             updateStatusFun(orderID,status)
             resolve(true);
-        }, 5000);
+        }, 60000*30);
     });
 };
 
@@ -71,7 +71,7 @@ const updateToDrying = (orderID) => {
           status = 'Drying';
           updateStatusFun(orderID,status)
           resolve(true);
-      }, 5000);
+      }, 60000*60);
   });
 };
 
@@ -85,7 +85,7 @@ const updateToIroning = async (orderID,totalItems) => {
               status = 'Ironing';
               updateStatusFun(orderID,status)
               resolve(true);
-          }, 5000);
+          }, 60000*60);
       });
       
       })
